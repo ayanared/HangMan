@@ -10,7 +10,7 @@ link here
 https://trello.com/b/bscRfgLz/wdi-project-1
 
 ## WireFrames
-![pictures here](wireframes.jpg)
+![pictures here](./wireframes.jpg)
 
 ##Technologies Used
 1.)JQuery
