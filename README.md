@@ -1,16 +1,16 @@
 # HangMan
 
-##Project Description
+## Project Description
 A guessing game.
 
-##Deployed App
+## Deployed App
 link here
 
-##Trello Board
+## Trello Board
 https://trello.com/b/bscRfgLz/wdi-project-1
 
-##WireFrames
-pictures here
+## WireFrames
+![pictures here](wireframes.jpg)
 
 ##Technologies Used
 1.)JQuery
