@@ -24,6 +24,14 @@ const GameBoard = {
         //get guess from user
         let indexOfLetterGuessed = this.wordToGuessArray.indexOf(letter);
         if(indexOfLetterGuessed > -1){
+            console.log("inside if statement")
+            while(indexOfLetterGuessed >-1){
+                console.log(indexOfLetterGuessed);
+                console.log(this.correctGuessesMade.join(""));
+                this.correctGuessesMade.splice(indexOfLetterGuessed,1,letter)
+                GameBoard.wordToGuessArray.splice(indexOfLetterGuessed, 1,"-");
+                indexOfLetterGuessed = this.wordToGuessArray.indexOf(letter);
+            }
             //if correct: 1. subtract letter-s left in Answer
             //            2. set wasGuessCorrectto True
             console.log(`${letter} was there!`)
@@ -56,6 +64,12 @@ const ViewEngine = {
     },
     updateWordToGuess : function() {
         //display letters guessed correctly
+        
+        const wordGuessed = GameBoard.correctGuessesMade.join("")
+        console.log(wordGuessed)
+        $(guessing_word).text(wordGuessed);
+        console.log('updateWordToGuess')
+
     },
     updateHangMan : function() {
         //increase hangman parts
@@ -81,7 +95,9 @@ const AppController = {
         GameBoard.getGuess(letterGuessed);
         ViewEngine.getGuessFromUser(letterGuessed);
         if(GameBoard.wasGuessCorrect){
-            AppController.handleGuessCorrect();
+            ViewEngine.updateWordToGuess();
+            
+
         }
         else{
             AppController.handleGuessIncorrect();
@@ -97,6 +113,7 @@ const AppController = {
     },
     handleGuessCorrect: function(){
 
+
     },
     handleWin: function(){
 
@@ -110,5 +127,30 @@ $(document).ready(function(){
 
 AppController.handleBoardSetUp();
 $('#a').on('click', AppController.handleMakeGuess);
+$('#b').on('click', AppController.handleMakeGuess);
+$('#c').on('click', AppController.handleMakeGuess);
+$('#d').on('click', AppController.handleMakeGuess);
+$('#e').on('click', AppController.handleMakeGuess);
+$('#f').on('click', AppController.handleMakeGuess);
+$('#g').on('click', AppController.handleMakeGuess);
+$('#h').on('click', AppController.handleMakeGuess);
+$('#i').on('click', AppController.handleMakeGuess);
+$('#j').on('click', AppController.handleMakeGuess);
+$('#k').on('click', AppController.handleMakeGuess);
+$('#l').on('click', AppController.handleMakeGuess);
+$('#m').on('click', AppController.handleMakeGuess);
+$('#n').on('click', AppController.handleMakeGuess);
+$('#o').on('click', AppController.handleMakeGuess);
+$('#p').on('click', AppController.handleMakeGuess);
+$('#q').on('click', AppController.handleMakeGuess);
+$('#r').on('click', AppController.handleMakeGuess);
+$('#s').on('click', AppController.handleMakeGuess);
+$('#t').on('click', AppController.handleMakeGuess);
+$('#u').on('click', AppController.handleMakeGuess);
+$('#v').on('click', AppController.handleMakeGuess);
+$('#w').on('click', AppController.handleMakeGuess);
+$('#x').on('click', AppController.handleMakeGuess);
+$('#y').on('click', AppController.handleMakeGuess);
+$('#z').on('click', AppController.handleMakeGuess);
 
 });
