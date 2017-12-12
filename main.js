@@ -1,11 +1,9 @@
 const GameBoard = {
     wordToGuess : "Hello",
     wordToGuessArray: [],
-    numOfLettersInWord : 5,
     wasGuessCorrect : false,
     correctGuessesMade : [],
-    incorrectGuessesMade: [],
-    lettersLeftInAnswer: 5,
+    guessesLeft : 6,
     startGame : function(){
         const randomIndex = Math.floor(Math.random()*answers.length);
         this.wordToGuess = answers[randomIndex].word.toLowerCase();
@@ -13,34 +11,27 @@ const GameBoard = {
         for (let i = 0; i<this.wordToGuessArray.length; i++){
             this.correctGuessesMade.push('_');
         }
-        console.log(this.correctGuessesMade);
-        this.numOfLettersInWord = this.wordToGuess.length
-        //populate wordToGuessArray
-        //populate numOfLetters in Word
-        //
-
     },
     getGuess : function(letter) {
         //get guess from user
         let indexOfLetterGuessed = this.wordToGuessArray.indexOf(letter);
         if(indexOfLetterGuessed > -1){
-            console.log("inside if statement")
+            this.wasGuessCorrect = true;
             while(indexOfLetterGuessed >-1){
-                console.log(indexOfLetterGuessed);
-                console.log(this.correctGuessesMade.join(""));
                 this.correctGuessesMade.splice(indexOfLetterGuessed,1,letter)
                 GameBoard.wordToGuessArray.splice(indexOfLetterGuessed, 1,"-");
                 indexOfLetterGuessed = this.wordToGuessArray.indexOf(letter);
             }
-            //if correct: 1. subtract letter-s left in Answer
-            //            2. set wasGuessCorrectto True
-            console.log(`${letter} was there!`)
-            this.wasGuessCorrect = true;
+            
         }
         else{
             //if incorrect: 1. put letter in incorrectGuessesMade array
             console.log(`${letter} was not there!`)
             this.wasGuessCorrect = false;
+            this.guessesLeft --;
+            console.log("guesses left:" + this.guessesLeft)
+
+
         }
         
     }
@@ -75,7 +66,11 @@ const ViewEngine = {
         //increase hangman parts
     },
     updateNumberToGuess: function(){
-        //
+        //update guesses
+        console.log("did this happen?")
+        
+        $('#guesses_left').text(GameBoard.guessesLeft);
+
 
     }
 
@@ -94,27 +89,22 @@ const AppController = {
         const letterGuessed = ($(event.target).attr('id'));  
         GameBoard.getGuess(letterGuessed);
         ViewEngine.getGuessFromUser(letterGuessed);
+        console.log(GameBoard.wasGuessCorrect)
         if(GameBoard.wasGuessCorrect){
-            ViewEngine.updateWordToGuess();
             
-
+            ViewEngine.updateWordToGuess();
         }
         else{
-            AppController.handleGuessIncorrect();
+           ViewEngine.updateNumberToGuess();
 
         }
-
-
 
     },
     handleGuessIncorrect: function(){
 
 
     },
-    handleGuessCorrect: function(){
-
-
-    },
+    
     handleWin: function(){
 
     },
