@@ -1,6 +1,12 @@
 .container{
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 18vh;
+    margin: 0;
 }
 
 img{
@@ -13,4 +19,17 @@ img{
 
 #guessing_container{
     height: 25vh;
+    font-size: 10vh;
+    font-family: 'Raleway', sans-serif;
+}
+
+#guessing_word{
+
+}
+
+#guesses_left_box{
+    width: 15%;
+    border: 5px solid black;
+    padding: 25px;
+    margin: 25px;
 }
