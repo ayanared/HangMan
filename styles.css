@@ -8,5 +8,9 @@ img{
 }
 
 #hangman_container{
-    height : 40vh;
+    height: 40vh;
+}
+
+#guessing_container{
+    height: 25vh;
 }
