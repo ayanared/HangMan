@@ -24,14 +24,12 @@ const GameBoard = {
                 GameBoard.wordToGuessArray.splice(indexOfLetterGuessed, 1, "-");
                 indexOfLetterGuessed = this.wordToGuessArray.indexOf(letter);
             }
-
         }
         else {
             //if incorrect: 1. put letter in incorrectGuessesMade array
             this.wasGuessCorrect = false;
             this.guessesLeft--;
         }
-
     },
     didIWin: function(){
         if (this.wordToGuess===this.correctGuessesMade.join("")){
@@ -43,11 +41,7 @@ const GameBoard = {
             this.lostGame = true;
         }
     }
-
-
-
 }
-
 const ViewEngine = {
     setUpBoard: function () {
         //put blanks
@@ -76,11 +70,7 @@ const ViewEngine = {
         //update guesses
 
         $('#guesses_left').text(GameBoard.guessesLeft);
-
-
     }
-
-
 }
 
 const AppController = {
@@ -89,7 +79,6 @@ const AppController = {
         GameBoard.startGame();
         //set up gameboard view
         ViewEngine.setUpBoard();
-
     },
     handleMakeGuess: function (event) {
         const letterGuessed = ($(event.target).attr('id'));
@@ -121,19 +110,16 @@ const AppController = {
     },
 
     handleWin: function () {
-        alert("You won!!!!");
+        $('#Modal_Container').show();
+        //alert("You won!!!!");
 
     },
     handleLose: function () {
         alert("Sorry!  The name was " + GameBoard.wordToGuess);
-
-
     }
 }
-
 $(document).ready(function () {
-
-    AppController.handleBoardSetUp();
+      AppController.handleBoardSetUp();
     $('#a').on('click', AppController.handleMakeGuess);
     $('#b').on('click', AppController.handleMakeGuess);
     $('#c').on('click', AppController.handleMakeGuess);
@@ -160,5 +146,10 @@ $(document).ready(function () {
     $('#x').on('click', AppController.handleMakeGuess);
     $('#y').on('click', AppController.handleMakeGuess);
     $('#z').on('click', AppController.handleMakeGuess);
+    $('#closeBtn').on('click', function(){
+        $('#Modal_Container').hide();
+    })
+
+
 
 });
