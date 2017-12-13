@@ -67,34 +67,32 @@ const ViewEngine = {
         //
     },
     updateWordToGuess: function () {
-        //display letters guessed correctly
-
         const wordGuessed = GameBoard.correctGuessesMade.join("")
         $(guessing_word).text(wordGuessed);
-
     },
     updateHangMan: function () {
         //increase hangman parts
     },
     updateNumberToGuess: function () {
-        //update guesses
-
         $('#guesses_left').text(GameBoard.guessesLeft);
+    },
+    showModalBox: function (message) {
+        $('#game_over_text').text(message);
+        $('#Modal_Container').show();
+
     }
+
 }
 
 const AppController = {
     handleBoardSetUp: function () {
-        //GameBoard.startGame
         GameBoard.startGame();
-        //set up gameboard view
         ViewEngine.setUpBoard();
     },
     handleMakeGuess: function (event) {
         const letterGuessed = ($(event.target).attr('id'));
         GameBoard.getGuess(letterGuessed);
         ViewEngine.getGuessFromUser(letterGuessed);
-
         if (GameBoard.wasGuessCorrect) {
             AppController.handleCorrectGuess();
         }
@@ -108,8 +106,6 @@ const AppController = {
         if(GameBoard.wonGame){
             AppController.handleWin();
         }
-
-
     },
     handleIncorrectGuess: function () {
         ViewEngine.updateNumberToGuess();
@@ -118,25 +114,20 @@ const AppController = {
             AppController.handleLose();
         }
     },
-
     handleWin: function () {
-        $('#Modal_Container').show();
-        //alert("You won!!!!");
-
+        ViewEngine.showModalBox ("Congratulations! You won!")
     },
     handleLose: function () {
-        $('#Modal_Container').show();
-        alert("Sorry!  The name was " + GameBoard.wordToGuess);
+        ViewEngine.showModalBox ("Sorry!  The name was " + GameBoard.wordToGuess)
     },
     handleReset: function (){
         GameBoard.resetGame();
         ViewEngine.setUpBoard();
         $('#Modal_Container').hide();
-
-
-
-    }
-    
+        $('.clicked').addClass('unclicked');
+        $('.clicked').removeClass('clicked')
+        $('.clicked').on('click',AppController.handleMakeGuess);
+    }  
 }
 $(document).ready(function () {
       AppController.handleBoardSetUp();
