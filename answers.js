@@ -1,11 +1,11 @@
 const answers = [
     {word: 'Ayana', hint: 'mommywifecoder'}, 
-    {word: 'Bethany', hint: 'wife of married couple'}, 
+    {word: 'Bethany', hint: 'drama queen'}, 
     {word: 'Diane', hint: 'Midas'}, 
     {word: 'Jackson', hint: '2 cute kids'},
     {word: 'Jasen', hint: 'LOVES Coheed and Cambria'},
     {word: 'Jean', hint: 'Mr. Sylish'},
-    {word: 'Joshua', hint: 'husband of married couple'},
+    {word: 'Joshua', hint: 'loves Harry Potter'},
     {word: 'Jonathan', hint: 'mountain climber'},
     {word: 'Marco', hint: 'mountain climber'},
     {word: 'Ninti', hint: 'blue hair'},
