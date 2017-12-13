@@ -106,20 +106,27 @@ const AppController = {
     handleCorrectGuess: function () {
         ViewEngine.updateWordToGuess();
         GameBoard.didIWin();
-        console.log(GameBoard.wonGame);
+        if(GameBoard.wonGame){
+            AppController.handleWin();
+        }
 
 
     },
     handleIncorrectGuess: function () {
         ViewEngine.updateNumberToGuess();
         GameBoard.didILose();
-        console.log(GameBoard.lostGame);
+        if(GameBoard.lostGame){
+            AppController.handleLose();
+        }
     },
 
     handleWin: function () {
+        alert("You won!!!!");
 
     },
     handleLose: function () {
+        alert("Sorry!  The name was " + GameBoard.wordToGuess);
+
 
     }
 }
