@@ -13,9 +13,12 @@ const GameBoard = {
         this.wordToGuess = answers[randomIndex].word.toLowerCase();
         this.hint = answers[randomIndex].hint;
         this.wordToGuessArray = this.wordToGuess.split("");
-        for (let i = 0; i < this.wordToGuessArray.length; i++) {
+        this.wordToGuessArray.forEach(()=>{
             this.correctGuessesMade.push('_');
-        }
+        })
+        //for (let i = 0; i < this.wordToGuessArray.length; i++) {
+          //  this.correctGuessesMade.push('_');
+        //}
     },
     getGuess: function (letter) {
         //get guess from user
