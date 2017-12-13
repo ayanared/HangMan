@@ -1,4 +1,5 @@
 const GameBoard = {
+    score = 0,
     wordToGuess: "",
     hint: "",
     wordToGuessArray: [],
@@ -36,6 +37,7 @@ const GameBoard = {
     didIWin: function(){
         if (this.wordToGuess===this.correctGuessesMade.join("")){
             this.wonGame = true;
+            this.score ++;
         }
     },
     didILose: function(){
@@ -129,37 +131,12 @@ const AppController = {
         $('#Modal_Container').hide();
         $('.clicked').addClass('unclicked');
         $('.clicked').removeClass('clicked')
-        $('.clicked').on('click',AppController.handleMakeGuess);
+        $('.unclicked').on('click',AppController.handleMakeGuess);
     }  
 }
 $(document).ready(function () {
       AppController.handleBoardSetUp();
-    $('#a').on('click', AppController.handleMakeGuess);
-    $('#b').on('click', AppController.handleMakeGuess);
-    $('#c').on('click', AppController.handleMakeGuess);
-    $('#d').on('click', AppController.handleMakeGuess);
-    $('#e').on('click', AppController.handleMakeGuess);
-    $('#f').on('click', AppController.handleMakeGuess);
-    $('#g').on('click', AppController.handleMakeGuess);
-    $('#h').on('click', AppController.handleMakeGuess);
-    $('#i').on('click', AppController.handleMakeGuess);
-    $('#j').on('click', AppController.handleMakeGuess);
-    $('#k').on('click', AppController.handleMakeGuess);
-    $('#l').on('click', AppController.handleMakeGuess);
-    $('#m').on('click', AppController.handleMakeGuess);
-    $('#n').on('click', AppController.handleMakeGuess);
-    $('#o').on('click', AppController.handleMakeGuess);
-    $('#p').on('click', AppController.handleMakeGuess);
-    $('#q').on('click', AppController.handleMakeGuess);
-    $('#r').on('click', AppController.handleMakeGuess);
-    $('#s').on('click', AppController.handleMakeGuess);
-    $('#t').on('click', AppController.handleMakeGuess);
-    $('#u').on('click', AppController.handleMakeGuess);
-    $('#v').on('click', AppController.handleMakeGuess);
-    $('#w').on('click', AppController.handleMakeGuess);
-    $('#x').on('click', AppController.handleMakeGuess);
-    $('#y').on('click', AppController.handleMakeGuess);
-    $('#z').on('click', AppController.handleMakeGuess);
+    $('.unclicked').on('click', AppController.handleMakeGuess);
     $('#closeBtn').on('click', function(){
         $('#Modal_Container').hide();
     })
