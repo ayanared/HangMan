@@ -48,6 +48,7 @@ const GameBoard = {
         this.wasGuessCorrect = false;
         this.correctGuessesMade = [];
         this.guessesLeft = 6;
+
         this.wonGame = false,
             this.lostGame = false,
             this.startGame();
@@ -104,8 +105,6 @@ const AppController = {
         if (GameBoard.wonGame) {
             AppController.handleWin();
             ViewEngine.updateScore();
-            console.log("score is: " + GameBoard.score)
-
         }
     },
     handleIncorrectGuess: function () {
@@ -126,10 +125,13 @@ const AppController = {
     handleReset: function () {
         GameBoard.resetGame();
         ViewEngine.setUpBoard();
+        ViewEngine.updateNumberToGuess();
         $('#Modal_Container').hide();
         $('.clicked').addClass('unclicked');
+        $('.clicked').on('click', AppController.handleMakeGuess);
         $('.clicked').removeClass('clicked')
-        $('.unclicked').on('click', AppController.handleMakeGuess);
+        
+        
     }
 }
 $(document).ready(function () {
@@ -139,7 +141,5 @@ $(document).ready(function () {
         $('#Modal_Container').hide();
     })
     $('.reset_button').on('click', AppController.handleReset);
-
-
 
 });
