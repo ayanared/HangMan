@@ -5,10 +5,11 @@
 ![](https://i.imgur.com/8MtfdTnm.png)
 
 ## Deployed App
-#### go here to play it! -> *ayanaguessinggame.bitballoon.com*
+#### go here to play it! -> 
+[click here to play game](ayanaguessinggame.bitballoon.com)
 
 ## Trello Board
-*https://trello.com/b/bscRfgLz/wdi-project-1*
+[click here to see trello board](https://trello.com/b/bscRfgLz/wdi-project-1)
 
 ## WireFrames
 ![pictures here](https://i.imgur.com/wUH5Ka6m.jpg)
