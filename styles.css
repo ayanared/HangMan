@@ -119,3 +119,8 @@ button {
     font-size: 3em;
     text-align: center;
 }
+.container_seperate_items{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

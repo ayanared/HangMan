@@ -17,8 +17,7 @@
     </header>
     <div class="container" id="hangman_container">
         <div id="guesses_left_box" class="container">
-            <h2 class="container">Guesses Left: </h2>
-                <h3 class="container" id="guesses_left">6</h2>
+            <h2 class="container">Guesses Left: <span id="guesses_left">6</span></h2>
         </div>
     </div>
     <div class="container" id="guessing_container">
@@ -65,10 +64,11 @@
         </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container_seperate_items">
             <button class="reset_button"> play again </button>
-            <h3>Score: </h3>
-            <h3 id="score_board">x</h3>
+            <div>
+            <h3>Score: <span id="score_board">0</span></h3>
+        </div>
         </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
