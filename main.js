@@ -40,6 +40,16 @@ const GameBoard = {
         if(this.guessesLeft === 0){
             this.lostGame = true;
         }
+        
+    },
+    resetGame: function(){
+        this.wasGuessCorrect = false;
+        this.correctGuessesMade = [];
+        this.guessesLeft = 6;
+        this.wonGame = false,
+        this.lostGame = false,
+        this.startGame();
+
     }
 }
 const ViewEngine = {
@@ -115,8 +125,18 @@ const AppController = {
 
     },
     handleLose: function () {
+        $('#Modal_Container').show();
         alert("Sorry!  The name was " + GameBoard.wordToGuess);
+    },
+    handleReset: function (){
+        GameBoard.resetGame();
+        ViewEngine.setUpBoard();
+        $('#Modal_Container').hide();
+
+
+
     }
+    
 }
 $(document).ready(function () {
       AppController.handleBoardSetUp();
@@ -149,6 +169,7 @@ $(document).ready(function () {
     $('#closeBtn').on('click', function(){
         $('#Modal_Container').hide();
     })
+    $('#reset_button').on('click', AppController.handleReset);
 
 
 
