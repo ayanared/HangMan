@@ -98,3 +98,14 @@ button {
     cursor: pointer;
 
 }
+#reset_button {
+    background: darkgrey;
+    padding: 1em 1em;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+
+}
+#game_over_text{
+    font-family: 'Raleway', sans-serif;
+    font-size: 3em;
+}
