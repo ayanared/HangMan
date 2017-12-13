@@ -1,6 +1,22 @@
 const answers = [
     {word: 'Ayana', hint: 'mommywifecoder'}, 
-    {word: 'Anwar', hint: 'cyber security expert'}, 
-    {word: 'Ezekiel', hint: 'loves academics'}, 
-    {word: 'Anaya', hint: 'artist'}
+    {word: 'Bethany', hint: 'wife of married couple'}, 
+    {word: 'Diane', hint: 'Midas'}, 
+    {word: 'Jackson', hint: '2 cute kids'},
+    {word: 'Jasen', hint: 'LOVES Coheed and Cambria'},
+    {word: 'Jean', hint: 'Mr. Sylish'},
+    {word: 'Joshua', hint: 'husband of married couple'},
+    {word: 'Jonathan', hint: 'mountain climber'},
+    {word: 'Marco', hint: 'mountain climber'},
+    {word: 'Ninti', hint: 'blue hair'},
+    {word: 'Okhyun', hint: 'architect'},
+    {word: 'Tyler', hint: 'red beard'},
+    {word: 'Christopher', hint: 'government contractor'},
+    {word: 'Eric', hint: 'brother'},
+    {word: 'Fahad', hint: 'Orlando'},
+    {word: 'Phil', hint: 'brother'},
+    {word: 'Jeremy', hint: 'art critic'},
+    {word: 'Supriya', hint: 'Accounting'},
+    {word: 'Anthony', hint: 'lives in Candler Park'},
+
 ]

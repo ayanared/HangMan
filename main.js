@@ -163,7 +163,7 @@ $(document).ready(function () {
     $('#closeBtn').on('click', function(){
         $('#Modal_Container').hide();
     })
-    $('#reset_button').on('click', AppController.handleReset);
+    $('.reset_button').on('click', AppController.handleReset);
 
 
 

@@ -33,13 +33,14 @@ img{
     padding: 0;
 }
 
-#guessing_word{
-
+#guesses_left{
+    padding: 3px;
 }
 
 #guesses_left_box{
     width: 15%;
     border: 1px solid black;
+    border-radius: 25px;
     padding: 5px;
     margin: 5px;
 }
@@ -98,7 +99,7 @@ button {
     cursor: pointer;
 
 }
-#reset_button {
+.reset_button {
     background: darkgrey;
     padding: 1em 1em;
     color: black;
