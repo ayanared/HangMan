@@ -1,5 +1,6 @@
 const GameBoard = {
     wordToGuess: "",
+    hint: "",
     wordToGuessArray: [],
     wasGuessCorrect: false,
     correctGuessesMade: [],
@@ -9,6 +10,7 @@ const GameBoard = {
     startGame: function () {
         const randomIndex = Math.floor(Math.random() * answers.length);
         this.wordToGuess = answers[randomIndex].word.toLowerCase();
+        this.hint = answers[randomIndex].hint;
         this.wordToGuessArray = this.wordToGuess.split("");
         for (let i = 0; i < this.wordToGuessArray.length; i++) {
             this.correctGuessesMade.push('_');
@@ -56,7 +58,9 @@ const ViewEngine = {
     setUpBoard: function () {
         //put blanks
         const blanks = GameBoard.correctGuessesMade.join("");
-        $(guessing_word).text(blanks);
+        $('#guessing_word').text(blanks);
+        $('#hint').text(`"${GameBoard.hint}"`);
+
     },
     getGuessFromUser: function (id) {
         //gray out button that has been guessed already
@@ -79,11 +83,8 @@ const ViewEngine = {
     showModalBox: function (message) {
         $('#game_over_text').text(message);
         $('#Modal_Container').show();
-
     }
-
 }
-
 const AppController = {
     handleBoardSetUp: function () {
         GameBoard.startGame();
