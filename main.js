@@ -1,5 +1,5 @@
 const GameBoard = {
-    score = 0,
+    score : 0,
     wordToGuess: "",
     hint: "",
     wordToGuessArray: [],
@@ -85,6 +85,11 @@ const ViewEngine = {
     showModalBox: function (message) {
         $('#game_over_text').text(message);
         $('#Modal_Container').show();
+    },
+    updateScore: function() {
+        $('#score_board').text(GameBoard.score);
+        
+
     }
 }
 const AppController = {
@@ -108,6 +113,9 @@ const AppController = {
         GameBoard.didIWin();
         if(GameBoard.wonGame){
             AppController.handleWin();
+            ViewEngine.updateScore();
+            console.log("score is: "+ GameBoard.score)
+            
         }
     },
     handleIncorrectGuess: function () {
