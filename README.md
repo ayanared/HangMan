@@ -1,10 +1,10 @@
 # HangMan
 
 ## Project Description
-A guessing game.
+A guessing game. Guess the names of WDI-13.  Hints are included!
 
 ## Deployed App
-ayanaguessinggame.bitballoon.com
+go here to play it! -> *ayanaguessinggame.bitballoon.com*
 
 ## Trello Board
 https://trello.com/b/bscRfgLz/wdi-project-1
