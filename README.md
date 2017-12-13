@@ -2,7 +2,7 @@
 
 ## Project Description
 #### A guessing game. Guess the names of WDI-13.  Hints are included!
-![](https://imgur.com/8MtfdTn)
+![](https://i.imgur.com/8MtfdTn.png)
 
 ## Deployed App
 #### go here to play it! -> *ayanaguessinggame.bitballoon.com*
@@ -11,7 +11,7 @@
 *https://trello.com/b/bscRfgLz/wdi-project-1*
 
 ## WireFrames
-![pictures here](https://imgur.com/wUH5Ka6)
+![pictures here](https://i.imgur.com/wUH5Ka6.jpg)
 
 ## Technologies Used
 1.)JQuery
