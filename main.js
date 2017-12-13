@@ -117,9 +117,11 @@ const AppController = {
     },
     handleWin: function () {
         ViewEngine.showModalBox ("Congratulations! You won!")
+        $('.unclicked').off('click',AppController.handleMakeGuess);
     },
     handleLose: function () {
         ViewEngine.showModalBox ("Sorry!  The name was " + GameBoard.wordToGuess)
+        $('.unclicked').off('click',AppController.handleMakeGuess);
     },
     handleReset: function (){
         GameBoard.resetGame();

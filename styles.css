@@ -108,4 +108,5 @@ button {
 #game_over_text{
     font-family: 'Raleway', sans-serif;
     font-size: 3em;
+    text-align: center;
 }
