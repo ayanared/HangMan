@@ -1,3 +1,6 @@
+
+
+
 .container{
     display: flex;
     justify-content: center;
@@ -123,4 +126,27 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+@media (max-width: 800px){
+    .container, header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #guesses_left_box{
+        border: none;
+        height: 5vh;
+    }
+    #guessing_word{
+        font-size: 5vh;
+        height: 10vh;
+    }
+    #guessing_container{
+        height: 10vh;
+
+    }
+    
+    
 }
