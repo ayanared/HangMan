@@ -1,27 +1,23 @@
 const GameBoard = {
-    score : 0,
+    score: 0,
     wordToGuess: "",
     hint: "",
     wordToGuessArray: [],
     wasGuessCorrect: false,
     correctGuessesMade: [],
     guessesLeft: 6,
-    wonGame : false,
-    lostGame : false,
+    wonGame: false,
+    lostGame: false,
     startGame: function () {
         const randomIndex = Math.floor(Math.random() * answers.length);
         this.wordToGuess = answers[randomIndex].word.toLowerCase();
         this.hint = answers[randomIndex].hint;
         this.wordToGuessArray = this.wordToGuess.split("");
-        this.wordToGuessArray.forEach(()=>{
+        this.wordToGuessArray.forEach(() => {
             this.correctGuessesMade.push('_');
         })
-        //for (let i = 0; i < this.wordToGuessArray.length; i++) {
-          //  this.correctGuessesMade.push('_');
-        //}
     },
     getGuess: function (letter) {
-        //get guess from user
         let indexOfLetterGuessed = this.wordToGuessArray.indexOf(letter);
         if (indexOfLetterGuessed > -1) {
             this.wasGuessCorrect = true;
@@ -32,55 +28,48 @@ const GameBoard = {
             }
         }
         else {
-            //if incorrect: 1. put letter in incorrectGuessesMade array
             this.wasGuessCorrect = false;
             this.guessesLeft--;
         }
     },
-    didIWin: function(){
-        if (this.wordToGuess===this.correctGuessesMade.join("")){
+    didIWin: function () {
+        if (this.wordToGuess === this.correctGuessesMade.join("")) {
             this.wonGame = true;
-            this.score ++;
+            this.score++;
         }
     },
-    didILose: function(){
-        if(this.guessesLeft === 0){
+    didILose: function () {
+        if (this.guessesLeft === 0) {
             this.lostGame = true;
         }
-        
+
     },
-    resetGame: function(){
+    resetGame: function () {
         this.wasGuessCorrect = false;
         this.correctGuessesMade = [];
         this.guessesLeft = 6;
         this.wonGame = false,
-        this.lostGame = false,
-        this.startGame();
+            this.lostGame = false,
+            this.startGame();
 
     }
 }
 const ViewEngine = {
     setUpBoard: function () {
-        //put blanks
         const blanks = GameBoard.correctGuessesMade.join("");
         $('#guessing_word').text(blanks);
         $('#hint').text(`"${GameBoard.hint}"`);
 
     },
     getGuessFromUser: function (id) {
-        //gray out button that has been guessed already
         $(`#${id}`).removeClass('unclicked');
         $(`#${id}`).addClass('clicked');
-        //remove event listener
         $(`#${id}`).off('click');
         //
     },
     updateWordToGuess: function () {
         const wordGuessed = GameBoard.correctGuessesMade.join("")
         $(guessing_word).text(wordGuessed);
-    },
-    updateHangMan: function () {
-        //increase hangman parts
     },
     updateNumberToGuess: function () {
         $('#guesses_left').text(GameBoard.guessesLeft);
@@ -89,10 +78,8 @@ const ViewEngine = {
         $('#game_over_text').text(message);
         $('#Modal_Container').show();
     },
-    updateScore: function() {
+    updateScore: function () {
         $('#score_board').text(GameBoard.score);
-        
-
     }
 }
 const AppController = {
@@ -114,41 +101,41 @@ const AppController = {
     handleCorrectGuess: function () {
         ViewEngine.updateWordToGuess();
         GameBoard.didIWin();
-        if(GameBoard.wonGame){
+        if (GameBoard.wonGame) {
             AppController.handleWin();
             ViewEngine.updateScore();
-            console.log("score is: "+ GameBoard.score)
-            
+            console.log("score is: " + GameBoard.score)
+
         }
     },
     handleIncorrectGuess: function () {
         ViewEngine.updateNumberToGuess();
         GameBoard.didILose();
-        if(GameBoard.lostGame){
+        if (GameBoard.lostGame) {
             AppController.handleLose();
         }
     },
     handleWin: function () {
-        ViewEngine.showModalBox ("Congratulations! You won!")
-        $('.unclicked').off('click',AppController.handleMakeGuess);
+        ViewEngine.showModalBox("Congratulations! You won!")
+        $('.unclicked').off('click', AppController.handleMakeGuess);
     },
     handleLose: function () {
-        ViewEngine.showModalBox ("Sorry!  The name was " + GameBoard.wordToGuess)
-        $('.unclicked').off('click',AppController.handleMakeGuess);
+        ViewEngine.showModalBox("Sorry!  The name was " + GameBoard.wordToGuess)
+        $('.unclicked').off('click', AppController.handleMakeGuess);
     },
-    handleReset: function (){
+    handleReset: function () {
         GameBoard.resetGame();
         ViewEngine.setUpBoard();
         $('#Modal_Container').hide();
         $('.clicked').addClass('unclicked');
         $('.clicked').removeClass('clicked')
-        $('.unclicked').on('click',AppController.handleMakeGuess);
-    }  
+        $('.unclicked').on('click', AppController.handleMakeGuess);
+    }
 }
 $(document).ready(function () {
-      AppController.handleBoardSetUp();
+    AppController.handleBoardSetUp();
     $('.unclicked').on('click', AppController.handleMakeGuess);
-    $('#closeBtn').on('click', function(){
+    $('#closeBtn').on('click', function () {
         $('#Modal_Container').hide();
     })
     $('.reset_button').on('click', AppController.handleReset);
