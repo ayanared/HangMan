@@ -101,9 +101,11 @@ button {
 }
 .reset_button {
     background: darkgrey;
-    padding: 1em 1em;
+    margin: 5px;
+    padding: 2px;
     color: black;
     font-family: 'Raleway', sans-serif;
+    font-size: 20px;
 
 }
 #game_over_text{
