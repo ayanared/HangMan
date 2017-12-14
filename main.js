@@ -130,6 +130,7 @@ const AppController = {
         ViewEngine.setUpBoard();
         ViewEngine.updateNumberToGuess();
         $('#Modal_Container').hide();
+        $('.unclicked').on('click', AppController.handleMakeGuess);
         $('.clicked').addClass('unclicked');
         $('.clicked').on('click', AppController.handleMakeGuess);
         $('.clicked').removeClass('clicked');

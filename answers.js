@@ -1,5 +1,5 @@
 const answers = [
-    {word: 'Ayana', hint: 'mommywifecoder'}, 
+    {word: 'Ayana', hint: 'mommywifecrafter'}, 
     {word: 'Bethany', hint: 'drama queen'}, 
     {word: 'Diane', hint: 'Midas'}, 
     {word: 'Jackson', hint: '2 cute kids'},
