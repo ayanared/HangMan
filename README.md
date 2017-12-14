@@ -16,3 +16,7 @@
 
 ## Technologies Used
 1.)JQuery
+
+## Future Functionality
+1.) Ability to add words
+2.) Add animation to shake guesses left box when incorrect guess is made.
