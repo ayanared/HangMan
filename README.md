@@ -15,8 +15,9 @@
 ![pictures here](https://i.imgur.com/wUH5Ka6m.jpg)
 
 ## Technologies Used
-1.)JQuery
+1.) JQuery
+2.) Media Query
+3.) Animate.css
 
 ## Future Functionality
 1.) Ability to add words
-2.) Add animation to shake guesses left box when incorrect guess is made.
