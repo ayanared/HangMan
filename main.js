@@ -9,8 +9,9 @@ const GameBoard = {
     wonGame: false,
     lostGame: false,
     startGame: function () {
-        const randomIndex = Math.floor(Math.random() * answers.length);
+        const randomIndex = 2//Math.floor(Math.random() * answers.length);
         this.wordToGuess = answers[randomIndex].word.toLowerCase();
+        console.log(this.wordToGuess);
         this.hint = answers[randomIndex].hint;
         this.wordToGuessArray = this.wordToGuess.split("");
         this.wordToGuessArray.forEach(() => {
@@ -18,6 +19,7 @@ const GameBoard = {
         })
     },
     getGuess: function (letter) {
+        console.log($('#g'));
         let indexOfLetterGuessed = this.wordToGuessArray.indexOf(letter);
         if (indexOfLetterGuessed > -1) {
             this.wasGuessCorrect = true;
@@ -28,6 +30,7 @@ const GameBoard = {
             }
         }
         else {
+            console.log("guess was wrong")
             this.wasGuessCorrect = false;
             this.guessesLeft--;
         }
@@ -48,10 +51,10 @@ const GameBoard = {
         this.wasGuessCorrect = false;
         this.correctGuessesMade = [];
         this.guessesLeft = 6;
-
         this.wonGame = false,
-            this.lostGame = false,
-            this.startGame();
+        this.lostGame = false,
+        this.startGame();
+        console.log("reset");
 
     }
 }
@@ -129,9 +132,7 @@ const AppController = {
         $('#Modal_Container').hide();
         $('.clicked').addClass('unclicked');
         $('.clicked').on('click', AppController.handleMakeGuess);
-        $('.clicked').removeClass('clicked')
-        
-        
+        $('.clicked').removeClass('clicked');
     }
 }
 $(document).ready(function () {
@@ -141,5 +142,6 @@ $(document).ready(function () {
         $('#Modal_Container').hide();
     })
     $('.reset_button').on('click', AppController.handleReset);
+    console.log($('.unclicked'));
 
 });
