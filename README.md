@@ -6,7 +6,7 @@
 
 ## Deployed App
 #### go here to play it! -> 
-[click here to play game](ayanaguessinggame.bitballoon.com)
+[click here to play game](https://ayanaguessinggame.bitballoon.com)
 
 ## Trello Board
 [click here to see trello board](https://trello.com/b/bscRfgLz/wdi-project-1)
