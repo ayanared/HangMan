@@ -71,6 +71,19 @@ const ViewEngine = {
         $(`#${id}`).off('click');
         //
     },
+    correctGuess : function() {
+
+    },
+
+    incorrectGuess : function() {
+        const animationName = 'animated shake';
+        const animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
+        $('#guesses_left_box').addClass(animationName).one(animationEnd, function (){
+            $(this).removeClass(animationName);
+            console.log("this happened")
+        })
+
+    },
     updateWordToGuess: function () {
         const wordGuessed = GameBoard.correctGuessesMade.join("")
         $(guessing_word).text(wordGuessed);
@@ -112,6 +125,8 @@ const AppController = {
     },
     handleIncorrectGuess: function () {
         ViewEngine.updateNumberToGuess();
+        ViewEngine.incorrectGuess();
+
         GameBoard.didILose();
         if (GameBoard.lostGame) {
             AppController.handleLose();
