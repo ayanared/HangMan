@@ -9,7 +9,7 @@ const GameBoard = {
     wonGame: false,
     lostGame: false,
     startGame: function () {
-        const randomIndex = 2//Math.floor(Math.random() * answers.length);
+        const randomIndex = Math.floor(Math.random() * answers.length);
         this.wordToGuess = answers[randomIndex].word.toLowerCase();
         console.log(this.wordToGuess);
         this.hint = answers[randomIndex].hint;
